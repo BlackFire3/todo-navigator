@@ -1,0 +1,57 @@
+{
+  "name": "todo-navigator",
+  "displayName": "TODO Navigator",
+  "description": "Поиск TODO и FIXME в текущем файле с переходом к выбранной заметке.",
+  "version": "1.0.1",
+  "publisher": "blackfire3",
+  "author": "Шибанов Никита Дмитриевич, M3120",
+  "private": true,
+  "engines": {
+    "vscode": "^1.85.0",
+    "node": ">=22"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "todo",
+    "fixme",
+    "navigation"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "todoNavigator.showAll",
+        "title": "Показать все заметки",
+        "category": "TODO Navigator"
+      },
+      {
+        "command": "todoNavigator.showTodo",
+        "title": "Только TODO",
+        "category": "TODO Navigator"
+      },
+      {
+        "command": "todoNavigator.showFixme",
+        "title": "Только FIXME",
+        "category": "TODO Navigator"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "todoNavigator.showAll",
+          "when": "editorTextFocus",
+          "group": "navigation@20"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ."
+  },
+  "devDependencies": {
+    "@types/vscode": "1.85.0",
+    "typescript": "5.9.3"
+  }
+}
